@@ -45,9 +45,9 @@ Optional: under **Redirects/Rewrites**, add a rewrite from `/*` to `/index.html`
 | --- | --- |
 | Runtime | Node |
 | Build Command | `npm ci && npm run build` |
-| Start Command | `npm run preview` |
+| Start Command | `npx vite preview` |
 | Environment variable | `NODE_VERSION` = `22` |
 
-`vite preview` binds to `0.0.0.0` on Render's `$PORT` (see `vite.config.ts`). Free web services sleep when idle, so Option A or B is the better fit.
+`npx vite preview` binds to `0.0.0.0` on Render's `$PORT` (see `vite.config.ts`). Don't use `npm run preview` here: that script pins port 3000, which Render won't route to. Free web services sleep when idle, so Option A or B is the better fit.
 
 Every push to `main` triggers an automatic redeploy.
